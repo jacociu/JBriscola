@@ -4,6 +4,6 @@ public enum Seme {
     Bastoni,
     Coppe,
     Denari,
-    Spade;
+    Spade
 }
 
