@@ -4,7 +4,7 @@ import java.util.*;
 
  public class Mazzo {
     //attributi
-    private int Size;
+    private int size;
 
      public ArrayList<Carta> el = new ArrayList<>();
 
@@ -20,7 +20,7 @@ import java.util.*;
 
     //get di Size
     public int GetSize(){
-         return Size;
+         return size;
     }
 
     //Metodo Per mischiare il mazzo
