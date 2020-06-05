@@ -10,7 +10,8 @@ import java.util.*;
 
      public ArrayList<Carta> el = new ArrayList<>();
 
-     //Costruttore di default: istanzia un oggetto di classe Mazzo settando la grandezza a "40" e inizializzando L'arraylist di carte presenti nel mazzo. Chiama infine il metodo per inizializzare e popolare l'arraylist di carte.}
+     //Costruttore di default: istanzia un oggetto di classe Mazzo settando la grandezza a "40" e
+     //inizializzando L'arraylist di carte presenti nel mazzo. Chiama infine il metodo per inizializzare e popolare l'arraylist di carte.}
 
      public Mazzo(){
         for (Seme s : Seme.values()){
@@ -18,10 +19,10 @@ import java.util.*;
 
                 el.add(new Carta(v,s));
         }
-    }
+     }
 
      //get di Size
-    public int GetSize(){
+     public int GetSize(){
          return size;
     }
 
@@ -30,9 +31,7 @@ import java.util.*;
         Collections.shuffle(el);
     }
 
-
-
-    // override del metodo toString
+    //override del metodo toString
     @Override
     public String toString(){
         StringBuilder s= new StringBuilder();
