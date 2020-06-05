@@ -6,6 +6,8 @@ import java.util.*;
     //attributi
     private int size;
 
+    //rivedere
+
      public ArrayList<Carta> el = new ArrayList<>();
 
      //Costruttore di default: istanzia un oggetto di classe Mazzo settando la grandezza a "40" e inizializzando L'arraylist di carte presenti nel mazzo. Chiama infine il metodo per inizializzare e popolare l'arraylist di carte.}
@@ -18,7 +20,7 @@ import java.util.*;
         }
     }
 
-    //get di Size
+     //get di Size
     public int GetSize(){
          return size;
     }
@@ -28,20 +30,17 @@ import java.util.*;
         Collections.shuffle(el);
     }
 
-    //metodo per rimuovere una carta dal mazzo
-     public void rimuoviCarta(Carta c){
 
-     }
 
     // override del metodo toString
     @Override
     public String toString(){
-        String s="";
+        StringBuilder s= new StringBuilder();
         for (Carta c :  el){
 
-            s = s+ c+ "\n";
+            s.append(c).append("\n");
         }
-        return s;
+        return s.toString();
     }
 
 
