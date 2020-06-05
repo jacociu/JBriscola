@@ -27,15 +27,6 @@ public class Carta {
         return sem;
     }
 
-    //Metodo toString
-    public String toString() {
-        return val + " di " + sem.toString();
-    }
-
-    //Metodo booleano che ci controlla se due carte sono uguali(Stesso seme e stesso valore)
-    //"java.lang.Object obj" serve per far confrontare due oggetti
-    public boolean equals(java.lang.Object obj)     //(?)
-
     //Metodo toString che ritorna una string di seme e valore come carta
     public String toString() {
         return val + " di " + sem.toString();
@@ -50,6 +41,11 @@ public class Carta {
         if (this.val > c.val) return 1;
         else return 0;
     }
+    //Metodo booleano che ci controlla se due carte sono uguali(Stesso seme e stesso valore)
+    //"java.lang.Object obj" serve per far confrontare due oggetti
+    public boolean equals(Object o) { return equals((Carta) o); }
+    public boolean equals(Carta c) {
+        return sem.equals(c.sem)&&val.equals(c.val);
 
 
 }
