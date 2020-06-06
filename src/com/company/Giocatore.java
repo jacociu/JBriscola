@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 
-public class Giocatore {
+public abstract class Giocatore {
 
     //attributi
     private String nome;
@@ -16,48 +16,43 @@ public class Giocatore {
         this.nome = nome;
         Seduta = seduta;
     }
-
-
     //metodi get e set
+
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public Mazzo getMano() {
         return mano;
     }
-
     public void setMano(Mazzo mano) {
         this.mano = mano;
     }
-
     public Mazzo getPrese() {
         return prese;
     }
-
     public void setPrese(Mazzo prese) {
         this.prese = prese;
     }
-
     public Carta getCartaGiocata() {
         return cartaGiocata;
     }
-
     public void setCartaGiocata(Carta cartaGiocata) {
         this.cartaGiocata = cartaGiocata;
     }
-
     public Posizione getSeduta() {
         return Seduta;
     }
-
     public void setSeduta(Posizione seduta) {
         Seduta = seduta;
     }
+
+    //Metodo per ricevere le 3 Carte
+    public abstract void riceviCarte(java.util.ArrayList<Carta> carte);
+
+
 
 
 }
