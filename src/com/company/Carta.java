@@ -42,7 +42,7 @@ public class Carta implements Comparable<Object> {
      */
 
     public String toString() {
-        return " Carta [numero=" + numero + ", seme=" + sem + " ,valore= "+valore+" , punti= "+punti+"] ";
+        return " Carta [numero=" + numero + ", seme=" + seme + " ,valore= "+valore+" , punti= "+punti+"] ";
     }
     /**
      * definisce un ordine di grandezza interno alla classe: tra due carte viene considerata più grande
