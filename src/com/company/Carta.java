@@ -1,51 +1,122 @@
 package com.company;
 
 import java.util.Objects;
+/**
+ * Definisce l'oggetto Carta, le istanze di questa classe vengono raccolte all'interno delle istanze
+ * di mazzo e usate dalle istanze di Player e/o Automatico durante la partita
+ * @autor Francesco Schiena e Jacopo Ciuffetelli
+ */
 
-public class Carta {
-    //Attributi di com.company.Carta
-    private Valore val;
-    private Seme sem;
+/**
+ * Una definizione del metodo compareTo() deve confrontare un oggetto con un altro
+ * e restituire un valore minore, uguale o maggiore di zero per indicare se il primo oggetto è
+ * minore, uguale o maggiore del secondo.
+ * Se si desidera che gli oggetti di una classe possano essere confrontati e ordinati la classe deve
+ * implementare l’interfaccia Comparable e definire il metodo compareTo().
+ */
 
-    //Costruttore di com.company.Carta
-    public Carta(Valore v, Seme s) {
-        this.val = v;
-        this.sem = s;
+//Attributi di com.company.Carta
+public class Carta implements Comparable<Object> {
+
+    private int numero;
+    private Seme seme;
+    private int valore;
+    private int punti;
+
+    /**
+     * Metodo costruttore della classe Carta
+     * @param num valore numerico della carta
+     * @param se  seme della carta
+     * @param va  valore effettivo della carta nella briscola
+     * @param pu  punti attribuiti alla carta nella briscola
+     */
+    public Carta(int num,Seme se,int va,int pu){
+        this.numero=num;
+        this.seme=se;
+        this.valore=va;
+        this.punti=pu;
     }
 
-    //Costruttore vuoto
-    public Carta() {
-    }
+    /**genera  una stringa contente informazioni sullo stato dell'oggetto
+     * @return stringa contente lo stato dell'oggetto
+     */
 
-    //Metodo get di com.company.Valore
-    public Valore getValore() {
-        return val;
-    }
-
-    //Metodo get di com.company.Seme
-    public Seme getSeme() {
-        return sem;
-    }
-
-    //Metodo toString che ritorna una string di seme e valore come carta
     public String toString() {
-        return val + " di " + sem.toString();
+        return " Carta [numero=" + numero + ", seme=" + sem + " ,valore= "+valore+" , punti= "+punti+"] ";
     }
+    /**
+     * definisce un ordine di grandezza interno alla classe: tra due carte viene considerata più grande
+     * quella con l'attributo valore più alto a parità di valore si confronta l'attributo punti
+     *@param o Oggetto con cui effettuare il confronto verrà forzato un passaggio al tipo Carta
+     *@return 1 se l'oggetto di invocazione è più grande dell'oggetto passato come parametro
+     *altrimenti -1 se i due oggetti sono uguali viene ritornato 0
+     */
 
-    //Metodo compareTo Confronta due carte in base al loro com.company.Valore e il loro com.company.Seme
     public int compareTo(Object o) {
-        Carta c = (Carta) o;
-        if (this.sem.ordinal() < c.sem.ordinal()) return -1;
-        if (this.sem.ordinal() > c.sem.ordinal()) return 1;
-        if (this.val < c.val) return -1;
-        if (this.val > c.val) return 1;
-        else return 0;
+        Carta c=(Carta)o;
+
+        if(this.valore>c.valore)return 1;
+        if(this.valore<c.valore)return -1;
+        if(this.punti>c.punti)return 1;
+        if(this.punti<c.punti)return -1;
+
+        return 0;
     }
-    //Metodo booleano che ci controlla se due carte sono uguali(Stesso seme e stesso valore)
-    //"java.lang.Object obj" serve per far confrontare due oggetti
-    public boolean equals(Object o) { return equals((Carta) o); }
-    public boolean equals(Carta c) {
-        return sem.equals(c.sem)&&val.equals(c.val);
-
-
+    /**
+     * restituisce  il valore numerico della carta
+     * @return il valore numerico della Carta
+     */
+    public int getNumero() {
+        return numero;
+    }
+    /**
+     * modifica l'attributo numero della Carta
+     * @param numero nuovo valore che assumerà l'attributo numero
+     */
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    /**
+     * restituisce il valore dell'attributo seme della carta
+     * @return il valore dell'attributo seme della carta
+     */
+    public Seme getSeme() {
+        return seme;
+    }
+    /**
+     * modifica il valore dell'attributo seme della carta
+     * @param seme nuovo valore che assumerà l'attributo seme
+     */
+    public void setSeme(Seme seme) {
+        this.seme = seme;
+    }
+    /**
+     * restituisce il valore effettivo della carta nella briscola
+     * @return il valore effettivo nella briscola della carta
+     */
+    public int getValore() {
+        return valore;
+    }
+    /**
+     * modifica il valore effettivo nella briscola della carta
+     * @param valore  nuovo valore che assumerà l'attributo
+     */
+    public void setValore(int valore) {
+        this.valore = valore;
+    }
+    /**
+     * restituisce i punti attribuiti alla carta nella briscola
+     * @return punti attribuiti alla carta
+     */
+    public int getPunti() {
+        return punti;
+    }
+    /**
+     * modifica i punti attribuiti alla carta nella briscola
+     * @param punti nuovo valore che assumerà l'attributo punti
+     */
+    public void setPunti(int punti) {
+        this.punti = punti;
+    }
 }
+
