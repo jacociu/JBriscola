@@ -1,16 +1,12 @@
 package com.company;
 
-import java.util.*;
-
 public abstract class Giocatore {
 
     //attributi
     protected String nome;
     protected Mazzo mano;
     protected Mazzo prese;
-    protected Carta cartaGiocata;//elimina?
     protected int punti;
-    private Posizione Seduta;// elimina?
 
     //costruttore
     public Giocatore(String s){
@@ -24,7 +20,6 @@ public abstract class Giocatore {
      * @param c carta da aggiungere alle prese
      */
     public void presa(Carta c){
-
         this.prese.aggiungi(c);
     }
     /**
@@ -90,11 +85,10 @@ public abstract class Giocatore {
      * @return la carta da giocare scelta tra quelle in mano
      */
     public abstract Carta gioca(Carta t, Carta c);
-
-
     //Metodo per prendere una carta
     public void pesca(Carta c){
-        this.mano.aggiungi(c);}
+        this.mano.aggiungi(c);
+    }
 
 
 
