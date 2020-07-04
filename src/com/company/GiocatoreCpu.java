@@ -1,12 +1,13 @@
-package com.company;
+package JBriscola;
 
 /**
  * Giocatore automatico sceglie la sua mossa in base situazioni predefinite
+ *
  */
 public class GiocatoreCpu extends Giocatore{
     /**
      * metodo cotruttore che richiama il costruttore della superclasse passando solo il nome della cpu
-     * @param s nome giocatore automatico
+     * @param s nome GiocatoreCpu
      */
     public GiocatoreCpu(String s) {
         super(s);
@@ -14,10 +15,10 @@ public class GiocatoreCpu extends Giocatore{
     }
 
 
-    /**in base alla situazione attuale del gioco il giocatore Cpu sceglie quale mossa effettuare
+    /**in base alla situazione attuale del gioco il giocatore automatico sceglie quale mossa effettuare
      * @return la carta da giocare scelta tra quelle nella mano
      */
-    public Carta gioca(Carta t, Carta bri) {
+    public Carta gioca(Carta t,Carta q,Carta l, Carta bri) {
         System.out.println("MANO "+this.getNome()+":\n"+this.mano.toString()+"\n");
         if(t==null)return this.basso(bri);
         else{
@@ -35,7 +36,7 @@ public class GiocatoreCpu extends Giocatore{
     }
 
     /**
-     * metodo di utilit° per la decisione del giocatore Cpu individua la carta più bassa
+     * metodo di utilità per la decisione del giocatore automatico individua la carta più bassa
      *  privilegiando quelle del
      * seme diverso dalla briscola
      * @param bri briscola
@@ -56,9 +57,9 @@ public class GiocatoreCpu extends Giocatore{
     }
 
     /**
-     * metodo di utilit� per il giocatore Cpu data la carta giocata dall'avversario si individua o la carta dello
+     * metodo di utilità per il GiocatoreCpu data la carta giocata dall'avversario si individua o la carta dello
      * stesso seme di quella giocata ma con valore superiore tra quelle in mano o la carta più bassa
-     * @param t carta giocata dal giocatore avversario
+     * @param t carta giocata dal primo giocatore
      * @param bri briscola
      * @return Carta dello stesso seme di quella a terra ma con valore  superiore tra quelle in mano o
      * se non presente carta più bassa  tra quelle in mano
@@ -72,7 +73,7 @@ public class GiocatoreCpu extends Giocatore{
         for(Carta it:this.mano.getMazzo()){cont++;
             //la prima carta può non essere dello stesso seme della carta a terra quindi ogni possibile carta
             //con lo stesso seme della carta a terra sostituisce la prima, dopo di che solo le carta corrente
-            // � dello stesso seme di quella a terra ed è superiore a quella puntata da ret prende il suo posto
+            // è dello stesso seme di quella a terra ed è superiore a quella puntata da ret prende il suo posto
             // bisogna considerare il caso in cui la prima carta è già la più alta tra quelle in mano con
             //lo stesso seme di quella a terra ed accedere comunque nell if per settare coincide su true
             if((ret.getSeme()!=t.getSeme()&&it.getSeme()==t.getSeme())||(it.getSeme()==t.getSeme()&&(it.compareTo(ret)==1||it.compareTo(ret)==0))){
@@ -95,7 +96,7 @@ public class GiocatoreCpu extends Giocatore{
 
 
     /**
-     * metodo di utlità per il giocatore Cpu individua se presente la briscola più bassa in mano
+     * metodo di utlità per il giocatore automatico individua se presente la briscola pi� bassa in mano
      * @param bri briscola attuale
      * @return carta più bassa , ma con lo stesso seme della briscola, se non presente
      * carta più bassa
@@ -117,4 +118,3 @@ public class GiocatoreCpu extends Giocatore{
             this.mano.scarta(pos);}
         return ret;
     }
-}
