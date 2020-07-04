@@ -1,28 +1,14 @@
-package com.company;
-
-import java.util.Objects;
+package JBriscola;
 /**
  * Definisce l'oggetto Carta, le istanze di questa classe vengono raccolte all'interno delle istanze
- * di mazzo e usate dalle istanze di Player e/o Automatico durante la partita
- * @autor Francesco Schiena e Jacopo Ciuffetelli
+ * di mazzo e usate dalle istanze di GiocatoreReale e GiocatoreCpu durante la partita
+ *
  */
-
-/**
- * Una definizione del metodo compareTo() deve confrontare un oggetto con un altro
- * e restituire un valore minore, uguale o maggiore di zero per indicare se il primo oggetto è
- * minore, uguale o maggiore del secondo.
- * Se si desidera che gli oggetti di una classe possano essere confrontati e ordinati la classe deve
- * implementare l’interfaccia Comparable e definire il metodo compareTo().
- */
-
-//Attributi di com.company.Carta
-public class Carta implements Comparable<Object> {
-
+public class Carta implements Comparable<Object>{
     private int numero;
     private Seme seme;
     private int valore;
     private int punti;
-
     /**
      * Metodo costruttore della classe Carta
      * @param num valore numerico della carta
@@ -37,6 +23,7 @@ public class Carta implements Comparable<Object> {
         this.punti=pu;
     }
 
+
     /**genera  una stringa contente informazioni sullo stato dell'oggetto
      * @return stringa contente lo stato dell'oggetto
      */
@@ -44,9 +31,13 @@ public class Carta implements Comparable<Object> {
     public String toString() {
         return " Carta [numero=" + numero + ", seme=" + seme + " ,valore= "+valore+" , punti= "+punti+"] ";
     }
+
+
+
     /**
-     * definisce un ordine di grandezza interno alla classe: tra due carte viene considerata più grande
-     * quella con l'attributo valore più alto a parità di valore si confronta l'attributo punti
+     * definisce un ordine di grandezza interno alla classe
+     * tra due carte viene considerata più grande quella con l'attributo valore più alto
+     * a parità di valore si confronta l'attributo punti
      *@param o Oggetto con cui effettuare il confronto verrà forzato un passaggio al tipo Carta
      *@return 1 se l'oggetto di invocazione è più grande dell'oggetto passato come parametro
      *altrimenti -1 se i due oggetti sono uguali viene ritornato 0
@@ -61,6 +52,7 @@ public class Carta implements Comparable<Object> {
         if(this.punti<c.punti)return -1;
 
         return 0;
+
     }
     /**
      * restituisce  il valore numerico della carta
@@ -118,5 +110,5 @@ public class Carta implements Comparable<Object> {
     public void setPunti(int punti) {
         this.punti = punti;
     }
-}
 
+}
